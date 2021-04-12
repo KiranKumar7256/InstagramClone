@@ -88,9 +88,19 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="30dp"
         android:background="#038FFD"
-        android:text="TextView"
+        android:text="Get Objects form Server"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/savebtn" />
+
+    <Button
+        android:id="@+id/getobjectbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="GET OBJECT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/objecttxt" />
 </androidx.constraintlayout.widget.ConstraintLayout>
