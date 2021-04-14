@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
                 if(keyCode==KeyEvent.KEYCODE_ENTER || event.getAction()==KeyEvent.ACTION_DOWN){
-                    onClick(signupbutton);
+                    onClick(loginbutton);
                 }
                 return false;
             }
@@ -66,6 +66,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         public void done(ParseUser user, ParseException e) {
                             if (user != null & e == null) {
                                 FancyToast.makeText(LoginActivity.this, user.getUsername() + " has logged in", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
+                                Intent intent= new Intent(LoginActivity.this,SocialMediaActivity.class);
+                                startActivity(intent);
                             } else {
                                 FancyToast.makeText(LoginActivity.this, e.getMessage(), FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                             }
