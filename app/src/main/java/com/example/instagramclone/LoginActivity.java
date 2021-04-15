@@ -68,6 +68,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 FancyToast.makeText(LoginActivity.this, user.getUsername() + " has logged in", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
                                 Intent intent= new Intent(LoginActivity.this,SocialMediaActivity.class);
                                 startActivity(intent);
+                                finish();
                             } else {
                                 FancyToast.makeText(LoginActivity.this, e.getMessage(), FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                             }

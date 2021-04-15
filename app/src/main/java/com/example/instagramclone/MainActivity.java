@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 FancyToast.makeText(MainActivity.this, "SignUp Successfull", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
                                 Intent intent= new Intent(MainActivity.this,LoginActivity.class);
                                 startActivity(intent);
+                                finish();
                             } else {
                                 FancyToast.makeText(MainActivity.this, e.getMessage(), FancyToast.LENGTH_LONG, FancyToast.ERROR, true).show();
                             }
@@ -103,6 +104,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.loginbtn:
                 Intent intent= new Intent(MainActivity.this,LoginActivity.class);
                 startActivity(intent);
+                finish();
                 break;
             }
         }
