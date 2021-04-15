@@ -40,7 +40,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-                if(keyCode==KeyEvent.KEYCODE_ENTER || event.getAction()==KeyEvent.ACTION_DOWN){
+                if(keyCode==KeyEvent.KEYCODE_ENTER && event.getAction()==KeyEvent.ACTION_DOWN){
                     onClick(loginbutton);
                 }
                 return false;
@@ -80,6 +80,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             case R.id.signupbutton:
                 Intent intent= new Intent(this,MainActivity.class);
                 startActivity(intent);
+                finish();
                 break;
         }
     }

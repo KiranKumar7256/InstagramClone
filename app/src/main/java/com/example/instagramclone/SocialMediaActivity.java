@@ -32,6 +32,8 @@ import com.shashank.sony.fancytoastlib.FancyToast;
 
 import java.io.ByteArrayOutputStream;
 
+import static com.parse.ParseUser.logOut;
+
 public class SocialMediaActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
@@ -79,7 +81,7 @@ public class SocialMediaActivity extends AppCompatActivity {
                 }
                 break;
             case R.id.logout:
-                ParseUser.logOut();
+                ParseUser.getCurrentUser().logOut();
                 Intent intent=new Intent(this,MainActivity.class);
                 startActivity(intent);
                 finish();

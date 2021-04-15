@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //
 //    private String allKickBoxers;
 
-    EditText edtemail,edtusername,edtpassword;
-    Button signupbtn,loginbtn;
+    EditText edtemail, edtusername, edtpassword;
+    Button signupbtn, loginbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,37 +45,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setTitle("Sign Up");
 
-        edtemail= findViewById(R.id.edtemail);
-        edtusername= findViewById(R.id.edtusername);
-        edtpassword= findViewById(R.id.edtpassword);
-        signupbtn= findViewById(R.id.signupbtn);
-        loginbtn= findViewById(R.id.loginbtn);
+        edtemail = findViewById(R.id.edtemail);
+        edtusername = findViewById(R.id.edtusername);
+        edtpassword = findViewById(R.id.edtpassword);
+        signupbtn = findViewById(R.id.signupbtn);
+        loginbtn = findViewById(R.id.loginbtn);
 
         signupbtn.setOnClickListener(this);
         loginbtn.setOnClickListener(this);
+
+        ParseUser parseUser = ParseUser.getCurrentUser();
+        if (parseUser!= null) {
+            Intent intent = new Intent(this, SocialMediaActivity.class);
+            startActivity(intent);
+            finish();
+        }
 
         edtpassword.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
-                if(keyCode==KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN){
+                if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
                     onClick(signupbtn);
                 }
                 return false;
             }
         });
     }
-
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.signupbtn:
 
-                if(edtemail.getText().toString().equals("") || edtusername.getText().toString().equals("") || edtpassword.getText().toString().equals("")){
-                    FancyToast.makeText(MainActivity.this,"Email,Username and Password are required", FancyToast.LENGTH_LONG, FancyToast.INFO, true).show();
-                }
-                else {
+                if (edtemail.getText().toString().equals("") || edtusername.getText().toString().equals("") || edtpassword.getText().toString().equals("")) {
+                    FancyToast.makeText(MainActivity.this, "Email,Username and Password are required", FancyToast.LENGTH_LONG, FancyToast.INFO, true).show();
+                } else {
                     ParseUser user = new ParseUser();
                     user.setEmail(edtemail.getText().toString());
                     user.setUsername(edtusername.getText().toString());
@@ -90,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         public void done(ParseException e) {
                             if (e == null) {
                                 FancyToast.makeText(MainActivity.this, "SignUp Successfull", FancyToast.LENGTH_LONG, FancyToast.SUCCESS, true).show();
-                                Intent intent= new Intent(MainActivity.this,LoginActivity.class);
+                                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 finish();
                             } else {
@@ -102,24 +107,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
             case R.id.loginbtn:
-                Intent intent= new Intent(MainActivity.this,LoginActivity.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
                 break;
-            }
-        }
-
-        public void rootLayoutTapped(View view){
-            try{
-                InputMethodManager inputMethodManager= (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
-                inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),0);
-            }
-            catch (Exception e){
-                e.printStackTrace();
-            }
-
         }
     }
+
+    public void rootLayoutTapped(View view) {
+        try {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
 
 //        edtname= findViewById(R.id.edtname);
 //        edtpunchspeed= findViewById(R.id.edtpunchspeed);
