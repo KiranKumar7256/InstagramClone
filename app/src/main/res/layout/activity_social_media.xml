@@ -19,14 +19,16 @@
             android:id="@+id/tablayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/purple_200"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/viewpager"
-        android:layout_below="@+id/appbarlayout"/>
+        android:layout_below="@+id/appbarlayout"
+        android:background="#EBF680" />
 
 </RelativeLayout>

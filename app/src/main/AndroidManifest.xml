@@ -16,7 +16,7 @@
         <activity android:name=".UserPosts"></activity>
         <activity
             android:name=".SocialMediaActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
+            android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
